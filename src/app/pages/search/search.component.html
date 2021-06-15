@@ -1,0 +1,31 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <app-sidebar></app-sidebar>
+            <div class="col-sm-9 padding-right">
+                <div class="features_items" ><!--features_items-->
+                    <h2 class="title text-center">Search Products</h2>
+                <div *ngIf="proData else error">
+                    <div class="col-sm-4" *ngFor="let p of proData">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="http://localhost:8899/{{p.image}}" alt="" width=100 height=150 />
+                                        <h2>Rs.{{p.price}}</h2>
+                                        <p>{{p.pname}}</p>
+                                        <a href="javascript:void(0)" class="btn btn-default add-to-cart" (click)="addcart(p._id)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </div>
+                                   
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                    <ng-template #error>
+                        No search found
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
